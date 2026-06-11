@@ -7,7 +7,7 @@ Bu paket, Gazebo simülasyon ortamında TurtleBot3 Waffle robotu ile gerçekleş
 GitHub üzerinde doğrudan video oynatılamadığı için, videonun kapak görseline tıklayarak YouTube üzerinden simülasyonu izleyebilirsiniz:
 
 <p align="center">
-  <a href="https://youtu.be/f52q8jGge4A" target="_blank">
+  <a href="https://youtu.be/FBQJ61vKPPw" target="_blank">
     <img src="https://img.youtube.com/vi/f52q8jGge4A/0.jpg" alt="Proje Simülasyon Videosu" width="700" />
   </a>
 </p>
