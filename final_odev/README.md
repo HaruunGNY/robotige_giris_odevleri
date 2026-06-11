@@ -8,7 +8,7 @@ GitHub üzerinde doğrudan video oynatılamadığı için, videonun kapak görse
 
 <p align="center">
   <a href="https://youtu.be/FBQJ61vKPPw" target="_blank">
-    <img src="https://img.youtube.com/vi/f52q8jGge4A/0.jpg" alt="Proje Simülasyon Videosu" width="700" />
+    <img src="https://img.youtube.com/vi/FBQJ61vKPPw/0.jpg" alt="Proje Simülasyon Videosu" width="700" />
   </a>
 </p>
 
