@@ -4,6 +4,8 @@ Bu paket, Gazebo simülasyon ortamında TurtleBot3 Waffle robotu ile gerçekleş
 
 ## 🎬 Proje Tanıtım & Simülasyon Videosu
 
+> [!NOTE]
+> Videonun ilk 20-30 saniyesi haritalama (SLAM / Gmapping) sürecini, geri kalan kısmı ise otonom navigasyon ve QR kod doğrulama uygulamasını içermektedir. (Kayıt esnasındaki sıkıştırmadan ötürü video kalitesinde ufak bir düşüş mevcuttur).
 GitHub üzerinde doğrudan video oynatılamadığı için, videonun kapak görseline tıklayarak YouTube üzerinden simülasyonu izleyebilirsiniz:
 
 <p align="center">
