@@ -1,0 +1,77 @@
+locations:
+  - INFORMATION_DESK
+  - SCIENCE_SECTION
+  - NOVEL_SECTION
+  - CHECKOUT_AREA
+
+INFORMATION_DESK:
+  goal:
+    x: -1.14
+    y: 5.51
+    z: 0.0
+    qx: 0.0
+    qy: 0.0
+    qz: -0.573
+    qw: 0.819
+  qr:
+    x: -0.85
+    y: 4.71
+    z: 0.0
+    roll: 0.0
+    pitch: 0.0
+    yaw: 1.92
+  qr_expected: "LOCATION=INFORMATION_DESK"
+
+SCIENCE_SECTION:
+  goal:
+    x: 1.34
+    y: 1.50
+    z: 0.0
+    qx: 0.0
+    qy: 0.0
+    qz: -0.019
+    qw: 0.999
+  qr:
+    x: 2.19
+    y: 1.46
+    z: 0.0
+    roll: 0.0
+    pitch: 0.0
+    yaw: 3.10
+  qr_expected: "LOCATION=SCIENCE_SECTION"
+
+NOVEL_SECTION:
+  goal:
+    x: 4.92
+    y: 1.13
+    z: 0.0
+    qx: 0.0
+    qy: 0.0
+    qz: -0.455
+    qw: 0.890
+  qr:
+    x: 5.42
+    y: 0.44
+    z: 0.0
+    roll: 0.0
+    pitch: 0.0
+    yaw: 2.20
+  qr_expected: "LOCATION=NOVEL_SECTION"
+
+CHECKOUT_AREA:
+  goal:
+    x: -3.84
+    y: -5.61
+    z: 0.0
+    qx: 0.0
+    qy: 0.0
+    qz: 0.701
+    qw: 0.712
+  qr:
+    x: -3.82
+    y: -4.76
+    z: 0.0
+    roll: 0.0
+    pitch: 0.0
+    yaw: 4.69
+  qr_expected: "LOCATION=CHECKOUT_AREA"

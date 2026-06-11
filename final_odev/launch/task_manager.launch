@@ -1,0 +1,13 @@
+<launch>
+  <!-- Görev parametrelerini (mission.yaml) ROS parametre sunucusuna yüklüyoruz -->
+  <rosparam file="$(find final_odev)/config/mission.yaml" command="load" />
+
+  <!-- QR Kod Okuyucu düğümünü başlatıyoruz -->
+  <node name="qr_reader" pkg="final_odev" type="qr_reader.py" output="screen" />
+
+  <!-- Görev Yöneticisi (Task Manager) düğümünü başlatıyoruz -->
+  <node name="task_manager" pkg="final_odev" type="task_manager.py" output="screen" />
+
+  <!-- Kamera görüntüsünü canlı izlemek için rqt_image_view başlatıyoruz -->
+  <node name="camera_viewer" pkg="rqt_image_view" type="rqt_image_view" args="/camera/rgb/image_raw" />
+</launch>

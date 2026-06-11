@@ -1,0 +1,50 @@
+<launch>
+  <!-- TurtleBot3 modelini waffle olarak ayarlıyoruz -->
+  <arg name="model" default="waffle"/>
+  <arg name="x_pos" default="0.0"/>
+  <arg name="y_pos" default="0.0"/>
+  <arg name="z_pos" default="0.05"/>
+  <arg name="yaw" default="0.0"/>
+
+  <!-- Gazebo Model Arama Yoluna (GAZEBO_MODEL_PATH) kendi modellerimizi de ekliyoruz -->
+  <env name="GAZEBO_MODEL_PATH" value="$(find final_odev)/models:$(find aws_robomaker_bookstore_world)/models:$(optenv GAZEBO_MODEL_PATH)"/>
+
+  <!-- AWS Bookstore dünyasını başlatıyoruz (GUI'yi aktif yapıyoruz) -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find aws_robomaker_bookstore_world)/worlds/bookstore.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+  <!-- Turtlebot3 Waffle robotunu Gazebo'ya spawn ediyoruz -->
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
+  <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf" 
+        args="-urdf -model turtlebot3_$(arg model) -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -Y $(arg yaw) -param robot_description" />
+
+  <!-- Robot State Publisher başlatıyoruz (TF dönüşümleri için) -->
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="50.0" />
+  </node>
+
+  <!-- 4 Görev Noktasındaki QR Kod Modellerini Gazebo'ya Spawn Ediyoruz -->
+  
+  <!-- 1. INFORMATION_DESK QR -->
+  <node pkg="gazebo_ros" type="spawn_model" name="spawn_qr_info" 
+        args="-sdf -file $(find final_odev)/models/qr_information_desk/model.sdf -model qr_information_desk -x -0.85 -y 4.71 -z 0.0 -R 0.0 -P 0.0 -Y 1.92" />
+
+  <!-- 2. SCIENCE_SECTION QR -->
+  <node pkg="gazebo_ros" type="spawn_model" name="spawn_qr_science" 
+        args="-sdf -file $(find final_odev)/models/qr_science_section/model.sdf -model qr_science_section -x 2.19 -y 1.46 -z 0.0 -R 0.0 -P 0.0 -Y 3.10" />
+
+  <!-- 3. NOVEL_SECTION QR -->
+  <node pkg="gazebo_ros" type="spawn_model" name="spawn_qr_novel" 
+        args="-sdf -file $(find final_odev)/models/qr_novel_section/model.sdf -model qr_novel_section -x 5.42 -y 0.44 -z 0.0 -R 0.0 -P 0.0 -Y 2.20" />
+
+  <!-- 4. CHECKOUT_AREA QR -->
+  <node pkg="gazebo_ros" type="spawn_model" name="spawn_qr_checkout" 
+        args="-sdf -file $(find final_odev)/models/qr_checkout_area/model.sdf -model qr_checkout_area -x -3.82 -y -4.76 -z 0.0 -R 0.0 -P 0.0 -Y 4.69" />
+
+</launch>

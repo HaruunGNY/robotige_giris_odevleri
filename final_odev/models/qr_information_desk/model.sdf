@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="qr_information_desk">
+    <static>true</static>
+    <link name="link">
+      <pose>0 0 0.15 0 0 0</pose>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>0.02 0.3 0.3</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <pose>0.011 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.001 0.3 0.3</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://qr_information_desk/materials/scripts</uri>
+            <uri>model://qr_information_desk/materials/textures</uri>
+            <name>QR_InformationDesk/Material</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

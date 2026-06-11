@@ -1,0 +1,14 @@
+material QR_CheckoutArea/Material
+{
+  technique
+  {
+    pass
+    {
+      lighting off
+      texture_unit
+      {
+        texture qr_checkout.png
+      }
+    }
+  }
+}

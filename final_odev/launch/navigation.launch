@@ -1,0 +1,14 @@
+<launch>
+  <!-- TurtleBot3 Model (waffle) -->
+  <arg name="model" default="waffle"/>
+  
+  <!-- Harita dosyamızın yolunu belirtiyoruz -->
+  <arg name="map_file" default="$(find final_odev)/maps/map.yaml"/>
+
+  <!-- TurtleBot3 Navigasyon paketini haritamız ile başlatıyoruz -->
+  <include file="$(find turtlebot3_navigation)/launch/turtlebot3_navigation.launch">
+    <arg name="model" value="$(arg model)"/>
+    <arg name="map_file" value="$(arg map_file)"/>
+    <arg name="open_rviz" value="true"/>
+  </include>
+</launch>

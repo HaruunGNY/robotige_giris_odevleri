@@ -1,0 +1,14 @@
+material QR_InformationDesk/Material
+{
+  technique
+  {
+    pass
+    {
+      lighting off
+      texture_unit
+      {
+        texture qr_info.png
+      }
+    }
+  }
+}
