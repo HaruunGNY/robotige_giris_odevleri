@@ -1,14 +1,14 @@
 # 🤖 Robotiğe Giriş ROS Ödevleri (TurtleBot3 & Turtlesim)
 
-Bu depo (repository), **Robotiğe Giriş** dersi kapsamında hazırlanan, 2D simülasyon ortamından (Turtlesim) başlayıp 3D Gazebo ortamında otonom mobil robot kontrolüne (TurtleBot3) kadar uzanan **5 farklı ROS (Robot Operating System) ödevini** içermektedir.
+Bu depo (repository), **Robotiğe Giriş** dersi kapsamında hazırlanan, 2D simülasyon ortamından (Turtlesim) başlayıp 3D Gazebo ortamında otonom mobil robot kontrolüne (TurtleBot3) kadar uzanan **5 farklı ROS (Robot Operating System) ödevini ve 1 kapsamlı Final Uygulama Projesini** içermektedir.
 
-Her bir ödev, bağımsız birer ROS paketi olarak tasarlanmış olup başlangıç seviyesindeki öğrencilerin ve meraklıların robotik sistemleri, sensör veri işlemeyi ve klasik kontrol algoritmalarını pratik ederek öğrenmesi için kapsamlı dokümantasyonlar barındırır.
+Her bir ödev ve final projesi, bağımsız birer ROS paketi olarak tasarlanmış olup başlangıç seviyesindeki öğrencilerin ve meraklıların robotik sistemleri, sensör veri işlemeyi ve klasik kontrol algoritmalarını pratik ederek öğrenmesi için kapsamlı dokümantasyonlar barındırır.
 
 ---
 
-## 📁 Depo İçeriği ve Ödev Özetleri
+## 📁 Depo İçeriği ve Özetler
 
-Her bir klasörün içerisinde, ilgili ödevin çalışması için gereken teorik altyapıyı (Publisher/Subscriber, Service/Client, Lidar sensörleri, Move-Stop-Rotate algoritması, PID teorisi vb.) anlatan detaylı rehberler yer almaktadır.
+Her bir klasörün içerisinde, ilgili ödevin çalışması için gereken teorik altyapıyı (Publisher/Subscriber, Service/Client, Lidar sensörleri, Move-Stop-Rotate algoritması, PID teorisi, AMCL Navigasyon vb.) anlatan detaylı rehberler yer almaktadır.
 
 ### 1. 🐢 [Ödev 1: Turtlesim Konum Dinleyici ve Hareket](./odev_1_turtlesim/)
 *   **Açıklama:** Turtlesim simülasyonundaki kaplumbağanın konumunu saniyede bir okuyup ekrana yazarken, aynı anda robota sürekli dairesel hareket komutları yayınlar.
@@ -30,16 +30,24 @@ Her bir klasörün içerisinde, ilgili ödevin çalışması için gereken teori
 *   **Açıklama:** Robotun Lidar sensörüyle önündeki duvarı ölçüp, tam belirlenen hedef mesafede (0.35m) sarsıntısız, salınım yapmadan ve pürüzsüz durması için PID algoritmasını çalıştırır.
 *   **Kazanım:** Klasik Kontrol Teorisi (P, I, D Katsayıları) ve Satürasyon/Tolerans Sınırları.
 
+### 🏁 [Final Projesi: Çoklu Görev QR Doğrulama Servis Robotu](./final_odev/)
+*   **Açıklama:** Robotun bir kitapçı/kütüphane ortamında (`AWS Bookstore World`) 4 farklı görev noktasına otonom navigasyon yapmasını, hedeflerdeki QR kodları kamerasıyla okuyup doğrulamasını ve görev raporu hazırlamasını sağlar.
+*   **Kazanım:** Kompleks Durum Makineleri, Move-Base Hedef Yönetimi, OpenCV Kamerayla QR Kod Çözme, Hata ve Zaman Aşımı Yönetimi.
+
 ---
 
 ## 🛠️ Kurulum ve Derleme (Installation & Setup)
 
 Uygulamaların çalışabilmesi için öncelikle bu depoyu bilgisayarınıza indirmeniz ve ROS çalışma alanınızda (catkin workspace) derlemeniz gerekmektedir.
 
-**1. Depoyu İndirin (Clone):**
-Çalışma alanınızın (workspace) `src` dizinine giderek projeyi klonlayın:
+**1. Çalışma Alanının (Workspace) Oluşturulması ve Klonlama:**
+Eğer mevcut bir çalışma alanınız yoksa yeni bir tane oluşturup `src` dizinine gidin ve projeyi klonlayın:
 ```bash
+# Workspace oluşturma ve src klasörüne geçiş
+mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws/src
+
+# Depoyu klonlayın
 git clone https://github.com/HaruunGNY/robotige_giris_odevleri.git
 ```
 
@@ -58,11 +66,12 @@ source devel/setup.bash
 **4. Çalıştırma Yetkisi Verme:**
 Python düğümlerinin sorunsuz çalışabilmesi için dosyalara çalıştırma izni (`chmod +x`) verildiğinden emin olun:
 ```bash
-chmod +x ~/catkin_ws/src/odev_1_turtlesim/scripts/*.py
-chmod +x ~/catkin_ws/src/odev_2_service/scripts/*.py
-chmod +x ~/catkin_ws/src/odev_3_navigation/scripts/*.py
-chmod +x ~/catkin_ws/src/odev_4_engel_kacma/scripts/*.py
-chmod +x ~/catkin_ws/src/odev_5_pid_kontrol/scripts/*.py
+chmod +x ~/catkin_ws/src/robotige_giris_odevleri/odev_1_turtlesim/scripts/*.py
+chmod +x ~/catkin_ws/src/robotige_giris_odevleri/odev_2_service/scripts/*.py
+chmod +x ~/catkin_ws/src/robotige_giris_odevleri/odev_3_navigation/scripts/*.py
+chmod +x ~/catkin_ws/src/robotige_giris_odevleri/odev_4_engel_kacma/scripts/*.py
+chmod +x ~/catkin_ws/src/robotige_giris_odevleri/odev_5_pid_kontrol/scripts/*.py
+chmod +x ~/catkin_ws/src/robotige_giris_odevleri/final_odev/src/*.py
 ```
 
 *Detaylı teorik anlatımlar ve özgün komutlar için çalışmak istediğiniz ödev klasörünün içindeki `README.md` dosyasını inceleyin.*
